@@ -52,6 +52,7 @@ class FunctionEvent {
         this.method = req.method;
         this.query = req.query;
         this.path = req.path;
+        this.files = req.files;
     }
 }
 
@@ -118,6 +119,9 @@ const middleware = async (req, res) => {
     };
 
     const fnEvent = new FunctionEvent(req);
+    console.log("Here is the fnEvent:");
+    console.debug(fnEvent);
+
     const fnContext = new FunctionContext(cb);
 
     Promise.resolve(handler(fnEvent, fnContext, cb))
