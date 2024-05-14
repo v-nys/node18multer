@@ -119,9 +119,6 @@ const middleware = async (req, res) => {
     };
 
     const fnEvent = new FunctionEvent(req);
-    console.log("Here is the fnEvent:");
-    console.debug(fnEvent);
-
     const fnContext = new FunctionContext(cb);
 
     Promise.resolve(handler(fnEvent, fnContext, cb))
